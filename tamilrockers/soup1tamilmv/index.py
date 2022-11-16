@@ -2,13 +2,9 @@ from .thread import thread
 from .singlePage import getMoveInfo
 from .homePage import getAllLinks
 
-def movieList(length):
-    mainURL = "https://www.1tamilmv.cfd"
+
+def movieList(domain, length):
+    print("varun rockers")
+    mainURL = f"https://www.1tamilmv.{domain}"
     links = getAllLinks(mainURL)
-    print("Varun Rockers")
-    # moviesInfo = [getMoveInfo(movie) for movie in links[:10]]
-    # moviesInfo = [*filter(None, moviesInfo)]  # removing emty dict
-    # return moviesInfo
-    return  [*filter(None, thread(links[:length]))]
-
-
+    return [*filter(None, thread(links[:length]))]

@@ -8,10 +8,60 @@
     <title>Varun Rockers</title>
   </head>
   <body>
-    <div class=" font-bold text-center m-10">Varun Rockers</div>
+    <div class="font-bold text-center m-10">Varun Rockers</div>
+
+    <div class="grid place-items-center">
+      <form 
+        action=""
+        method = "post"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 grid grid-cols-3">
+      {% csrf_token %}
+        <div class="mb-4 m-3">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Domain
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username"
+            type="text"
+            value="cfd"
+            placeholder="Current domain"
+            name="domain"
+          />
+        </div>
+        <div class="mb-4 m-3">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Length
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username"
+            type="text"
+            placeholder="Length"
+            name="length"
+            value="10"
+          />
+        </div>
+
+
+        <div class="m-3">
+          <div class="mt-5 py-2 px-3">
+
+            <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+            >
+            Search
+          </button>
+        </div>
+        </div>
+      </form>
+    </div>
+
     <div class="grid grid-cols-2 gap-2 p-7">
       {% for movie in list %}
-      <a href="{{movie.downloadLinks.link}}"
+      <a
+        href="{{movie.downloadLinks.link}}"
         class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
       >
         <img
@@ -52,4 +102,10 @@
       {% endfor %}
     </div>
   </body>
+{%if status%}
+<script>
+  alert("{{message}}")
+  console.log("{{message}}")
+</script>
+{%endif%}
 </html>
